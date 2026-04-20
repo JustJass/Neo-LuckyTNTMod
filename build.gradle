@@ -61,7 +61,7 @@ configurations {
 
 dependencies {
     implementation "net.neoforged:neoforge:${neo_version}"
-    implementation "com.github.SlimingHD:Neo-LuckyTNTLib:1.21-21.0.78.2"
+    implementation "com.github.SlimingHD:Neo-LuckyTNTLib:1.21-21.0.78.3"
 }
 
 tasks.withType(ProcessResources).configureEach {

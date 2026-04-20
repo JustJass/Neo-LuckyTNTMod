@@ -43,4 +43,9 @@ public class TheRevolutionEffect extends PrimedTNTEffect{
 	public int getDefaultFuse(IExplosiveEntity entity) {
 		return 140;
 	}
+
+	@Override
+	public int getAdditionalDefaultBehaviorTicks(IExplosiveEntity entity) {
+		return spawnedByDispenser(entity) ? 40 : 0;
+	}
 }

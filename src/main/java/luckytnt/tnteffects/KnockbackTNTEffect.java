@@ -104,4 +104,9 @@ public class KnockbackTNTEffect extends PrimedTNTEffect {
 	public int getDefaultFuse(IExplosiveEntity ent) {
 		return 300;
 	}
+
+	@Override
+	public int getAdditionalDefaultBehaviorTicks(IExplosiveEntity entity) {
+		return spawnedByDispenser(entity) ? 80 : 0;
+	}
 }

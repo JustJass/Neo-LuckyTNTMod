@@ -71,7 +71,7 @@ public class ReplayTNTEffect extends PrimedTNTEffect {
 	
 	@Override
 	public void spawnParticles(IExplosiveEntity entity) {
-		if(entity.getTNTFuse() > 200) {
+		if(entity.getTNTFuse() > 200 && entity.getTNTFuse() <= 400) {
 			entity.getLevel().addParticle(new DustParticleOptions(new Vector3f(1f, 0f, 0f), 0.5f), entity.x(), entity.y() + 1.5D, entity.z(), 0, 0, 0);
 			for(double angle = 0; angle < 360; angle += 36D) {
 				entity.getLevel().addParticle(new DustParticleOptions(new Vector3f(1f, 0, 0), 0.5f), entity.x() + 0.125 * Math.cos(angle * Math.PI / 180), entity.y() + 1.5f + 0.125 * Math.sin(angle * Math.PI / 180), entity.z(), 0, 0, 0);
@@ -107,5 +107,10 @@ public class ReplayTNTEffect extends PrimedTNTEffect {
 	@Override
 	public int getDefaultFuse(IExplosiveEntity entity) {
 		return 400;
+	}
+
+	@Override
+	public int getAdditionalDefaultBehaviorTicks(IExplosiveEntity entity) {
+		return spawnedByDispenser(entity) ? 80 : 0;
 	}
 }

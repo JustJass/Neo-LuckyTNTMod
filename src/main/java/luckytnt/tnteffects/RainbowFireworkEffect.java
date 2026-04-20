@@ -20,9 +20,9 @@ import net.minecraft.world.level.block.state.BlockState;
 public class RainbowFireworkEffect extends PrimedTNTEffect{
 
 	@Override
-	public void baseTick(IExplosiveEntity entity) {
-		super.baseTick(entity);
-		((Entity)entity).setDeltaMovement(((Entity)entity).getDeltaMovement().x, 0.8f, ((Entity)entity).getDeltaMovement().z);
+	public void explosionTick(IExplosiveEntity entity) {
+		Entity ent = (Entity)entity;
+		ent.setDeltaMovement(ent.getDeltaMovement().x, 0.8f, ent.getDeltaMovement().z);
 	}
 	
 	@Override
@@ -77,5 +77,10 @@ public class RainbowFireworkEffect extends PrimedTNTEffect{
 	@Override
 	public int getDefaultFuse(IExplosiveEntity entity) {
 		return 40;
+	}
+
+	@Override
+	public int getAdditionalDefaultBehaviorTicks(IExplosiveEntity entity) {
+		return spawnedByDispenser(entity) ? 40 : 0;
 	}
 }

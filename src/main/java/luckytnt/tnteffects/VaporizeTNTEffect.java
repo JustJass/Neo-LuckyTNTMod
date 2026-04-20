@@ -15,6 +15,7 @@ import net.minecraft.world.level.block.KelpPlantBlock;
 import net.minecraft.world.level.block.LiquidBlock;
 import net.minecraft.world.level.block.SeagrassBlock;
 import net.minecraft.world.level.block.TallSeagrassBlock;
+import net.minecraft.world.level.block.BubbleColumnBlock;
 import net.minecraft.world.level.block.state.BlockState;
 
 public class VaporizeTNTEffect extends PrimedTNTEffect{
@@ -31,7 +32,7 @@ public class VaporizeTNTEffect extends PrimedTNTEffect{
 			
 			@Override
 			public void doBlockExplosion(Level level, BlockPos pos, BlockState state, double distance) {
-				if(state.getBlock() instanceof LiquidBlock  || state.getBlock() instanceof KelpPlantBlock || state.getBlock() instanceof SeagrassBlock || state.getBlock() instanceof TallSeagrassBlock || state.getBlock() instanceof CoralFanBlock) {
+				if(state.getBlock() instanceof LiquidBlock  || state.getBlock() instanceof KelpPlantBlock || state.getBlock() instanceof SeagrassBlock || state.getBlock() instanceof TallSeagrassBlock || state.getBlock() instanceof CoralFanBlock || state.getBlock() instanceof BubbleColumnBlock) {
 					state.onBlockExploded(level, pos, ImprovedExplosion.dummyExplosion(entity.getLevel()));
 				}
 			}

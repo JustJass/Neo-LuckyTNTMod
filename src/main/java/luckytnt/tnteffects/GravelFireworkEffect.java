@@ -59,4 +59,9 @@ public class GravelFireworkEffect extends PrimedTNTEffect{
 	public int getDefaultFuse(IExplosiveEntity entity) {
 		return 40;
 	}
+
+	@Override
+	public int getAdditionalDefaultBehaviorTicks(IExplosiveEntity entity) {
+		return spawnedByDispenser(entity) ? 40 : 0;
+	}
 }

@@ -10,4 +10,9 @@ public class LevitatingTNTEffect extends PrimedTNTEffect {
 	public void explosionTick(IExplosiveEntity ent) {
 		((Entity)ent).setDeltaMovement(((Entity)ent).getDeltaMovement().x, 0.15f, ((Entity)ent).getDeltaMovement().z);
 	}
+
+	@Override
+	public int getAdditionalDefaultBehaviorTicks(IExplosiveEntity entity) {
+		return spawnedByDispenser(entity) ? 40 : 0;
+	}
 }

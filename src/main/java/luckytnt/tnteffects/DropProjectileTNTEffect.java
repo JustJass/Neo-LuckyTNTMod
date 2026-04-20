@@ -40,4 +40,9 @@ public class DropProjectileTNTEffect extends PrimedTNTEffect {
 	public int getDefaultFuse(IExplosiveEntity entity) {
 		return 0;
 	}
+
+	@Override
+	public int getAdditionalDefaultBehaviorTicks(IExplosiveEntity entity) {
+		return spawnedByDispenser(entity) ? 40 : 0;
+	}
 }

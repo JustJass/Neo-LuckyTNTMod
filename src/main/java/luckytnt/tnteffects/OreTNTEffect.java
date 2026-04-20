@@ -24,7 +24,7 @@ public class OreTNTEffect extends PrimedTNTEffect{
 	@SuppressWarnings("resource")
 	@Override
 	public void explosionTick(IExplosiveEntity entity) {
-		if(!entity.getLevel().isClientSide) {
+		if(!entity.getLevel().isClientSide && entity.getTNTFuse() < 150) {
 			if(entity instanceof PrimedOreTNT tnt) {
 				if(tnt.availablePos.isEmpty()) {
 					fillAvailablePos(tnt);
@@ -230,5 +230,10 @@ public class OreTNTEffect extends PrimedTNTEffect{
 	@Override
 	public int getDefaultFuse(IExplosiveEntity entity) {
 		return 150;
+	}
+
+	@Override
+	public int getAdditionalDefaultBehaviorTicks(IExplosiveEntity entity) {
+		return spawnedByDispenser(entity) ? 80 : 0;
 	}
 }

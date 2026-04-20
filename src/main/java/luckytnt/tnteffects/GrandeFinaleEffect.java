@@ -105,4 +105,9 @@ public class GrandeFinaleEffect extends PrimedTNTEffect {
 	public int getDefaultFuse(IExplosiveEntity ent) {
 		return 440;
 	}
+
+	@Override
+	public int getAdditionalDefaultBehaviorTicks(IExplosiveEntity entity) {
+		return spawnedByDispenser(entity) ? 40 : 0;
+	}
 }

@@ -77,4 +77,9 @@ public class ChemicalTNTEffect extends PrimedTNTEffect{
 	public Block getBlock() {
 		return BlockRegistry.CHEMICAL_TNT.get();
 	}
+
+	@Override
+	public int getAdditionalDefaultBehaviorTicks(IExplosiveEntity entity) {
+		return spawnedByDispenser(entity) ? 40 : 0;
+	}
 }

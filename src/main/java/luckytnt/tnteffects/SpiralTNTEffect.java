@@ -48,4 +48,9 @@ public class SpiralTNTEffect extends PrimedTNTEffect{
 	public int getDefaultFuse(IExplosiveEntity entity) {
 		return entity instanceof PrimedLTNT ? 140 : 10000;
 	}
+
+	@Override
+	public int getAdditionalDefaultBehaviorTicks(IExplosiveEntity entity) {
+		return spawnedByDispenser(entity) ? 40 : 0;
+	}
 }

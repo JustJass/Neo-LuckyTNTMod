@@ -68,4 +68,9 @@ public class LightningStormEffect extends PrimedTNTEffect {
 	public int getDefaultFuse(IExplosiveEntity ent) {
 		return 160;
 	}
+
+	@Override
+	public int getAdditionalDefaultBehaviorTicks(IExplosiveEntity entity) {
+		return spawnedByDispenser(entity) ? 80 : 0;
+	}
 }
